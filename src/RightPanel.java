@@ -3,6 +3,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.TextField;
 import java.io.IOException;
@@ -34,7 +35,7 @@ public class RightPanel extends JPanel {
     JLabel txt7c;
     JLabel txt8c;
     
-    int fontSize = 30;
+    int fontSize = 25;
     String fontType = "Arial";
     
     public RightPanel() throws IOException {
@@ -99,16 +100,37 @@ public class RightPanel extends JPanel {
         txt8c.setFont(new Font(fontType, Font.BOLD, fontSize));
         
         
-        setBorder(BorderFactory.createEmptyBorder(0, 20, 0, 20));
+        setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 20));
+        GridLayout gl = new GridLayout(8, 40, 0, 0);
         
+        this.setLayout(gl);
+        
+        this.add(txt1);
+        this.add(txt1c);
+        this.add(txt2);
+        this.add(txt2c);
+        this.add(txt3);
+        this.add(txt3c);
+        this.add(txt4);
+        this.add(txt4c);
+        this.add(txt5);
+        this.add(txt5c);
+        this.add(txt6);
+        this.add(txt6c);
+        this.add(txt7);
+        this.add(txt7c);
+		
+        /*
         ///////////////Layout Setups//////////////////////
         setLayout(new GridBagLayout());
         
         GridBagConstraints gc = new GridBagConstraints();
-        gc.insets = new Insets(3, 3, 3, 3);
+        gc.insets = new Insets(0, 0, 0, 0);
+        gc.fill = GridBagConstraints.VERTICAL;
         
         gc.weightx = 1;
-        gc.weighty = 0.8;
+        gc.weighty = 0.1;
+        gc.ipady = 0;
         
         gc.anchor = GridBagConstraints.WEST;
         gc.gridx = 0;
@@ -188,8 +210,7 @@ public class RightPanel extends JPanel {
         gc.weightx = 0;
         gc.gridx = 1;
         gc.gridy = 14;
-        add(txt8c, gc);
-        
+        add(txt8c, gc);*/
     }
     
     //Method for updating the schedule
@@ -205,29 +226,29 @@ public class RightPanel extends JPanel {
         txt8.setFont(new Font(fontType, Font.BOLD, fontSize));
         //this updates the schedule of different days of the week
         if(dayOfWeek != 4 && dayOfWeek != 1 && dayOfWeek != 7 && br.ifHasSchool()) {
-            txt1.setText("8:00 - 9:19");
+            txt1.setText("8:00 - 9:19 ");
             txt1c.setText(br.getTableLine(dayOfWeek, 1));
             
-            txt2.setText("9:24 - 10:43");
+            txt2.setText("9:24 - 10:43 ");
             txt2c.setText(br.getTableLine(dayOfWeek, 2));
             
-            txt3.setText("10:48 - 12:07");
+            txt3.setText("10:48 - 12:07 ");
             txt3c.setText(br.getTableLine(dayOfWeek, 3));
             
-            txt4.setText("12:07 - 12:47");
+            txt4.setText("12:07 - 12:47 ");
             txt4c.setText("Lunch");
             
-            txt5.setText("12:47 - 2:06");
+            txt5.setText("12:47 - 2:06 ");
             txt5c.setText(br.getTableLine(dayOfWeek, 4));
             
-            txt6.setText("2:11 - 3:30");
+            txt6.setText("2:11 - 3:30 ");
             txt6c.setText(br.getTableLine(dayOfWeek, 5));
             
             txt7.setText("");
             txt8.setText("");
         }
         if(dayOfWeek == 4 && br.ifHasSchool()) {
-            txt1.setText("8:00 - 9:14");
+            txt1.setText("8:00 - 9:14 ");
             txt1c.setText(br.getTableLine(dayOfWeek, 1));
             
             txt2.setText("9:19 - 10:33");
